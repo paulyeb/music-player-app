@@ -2,7 +2,7 @@ import './App.css';
 import Player from './components/Player';
 import MusicProvider from './store/music-context';
 
-function App() {
+const App = () => {
   
     return (
       <MusicProvider>
