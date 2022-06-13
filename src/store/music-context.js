@@ -1,5 +1,5 @@
 import React, {createContext, useReducer} from "react";
-import musicReducer from "../components/reducers/musicReducer";
+import musicReducer from "../reducers/musicReducer";
 
 export const MusicContext = createContext();
 
