@@ -1,32 +1,35 @@
-import React, {useRef, useEffect, useState} from 'react';
+import React, {useRef, useContext} from 'react';
+import { MusicContext } from '../store/music-context';
 
 
-function Player({songs}) {
-  const [isPlaying, setIsPlaying] = useState(false);
-  const audioElelment = useRef(null);
+const  Player = () => {
+  const {state, dispatch} = useContext(MusicContext);
+  const audioElement = useRef(null);
 
-  useEffect(() => {
-    if(isPlaying) {
-      audioElelment.current.play();
-    } else {
-      audioElelment.current.pause();
-    };
-  }, [isPlaying]);
+  const playOrPauseHandler = async () => { 
+      await dispatch({
+        type: "playOrPause"
+      });
 
-  const playMusicHandler = () => { 
-    setIsPlaying(prevState => !prevState);
+      if (state.isPlaying) {
+        audioElement.current.pause();
+      } else {
+        audioElement.current.play();
+      };
   }
 
   return (
     <div>
-      <div>Music Player</div>
-      <audio src={songs[0].src} ref={audioElelment}></audio>
-      <button 
-        className='bg-gray-800 text-gray-200 p-2 rounded'
-        onClick={playMusicHandler}  
-      >
-        {isPlaying ? 'Pause Music' : 'Play Music'}
-      </button>
+        <div>Music Player</div>
+
+        <audio src={state.songs[2].src} ref={audioElement}></audio>
+
+        <button 
+          className='bg-gray-800 text-gray-200 p-2 rounded'
+          onClick={playOrPauseHandler}
+        >
+          {state.isPlaying ? 'Pause' : 'Play'}
+        </button>
     </div>
   )
 }
