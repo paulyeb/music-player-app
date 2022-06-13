@@ -9,7 +9,7 @@ const  Player = () => {
                 <img src="./images/musicLogo.png" alt="Music Logo" className="object-cover h-12 w-12" />
               
 
-              <p className="py-10 font-medium text-xl">Now Playing</p>
+              <p className="py-10 text-gray-700 font-medium text-xl">Now Playing</p>
 
               <Details />
 

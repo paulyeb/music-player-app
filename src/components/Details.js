@@ -12,9 +12,9 @@ const Details = () => {
                 className="shadow-xl h-80 w-80 rounded-full object-cover" 
             />
             </div>
-            <div className="flex flex-col justify-start items-start mt-5 mb-5">
-                <h1 className="text-2xl font-bold my-1">{state.songs[state.currentSongIndex].artist}</h1>
-                <p className="text-xl font-medium">{state.songs[state.currentSongIndex].title}</p>
+            <div className="flex flex-col justify-start items-center mt-5 mb-5">
+                <h1 className="text-2xl font-bold text-gray-700 my-1">{state.songs[state.currentSongIndex].artist}</h1>
+                <p className="text-lg font-medium text-gray-600">{state.songs[state.currentSongIndex].title}</p>
             </div>
         </div>
     )
