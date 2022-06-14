@@ -12,6 +12,16 @@ function musicReducer(state, action) {
                 return {...state, isPlaying: false, currentSongIndex: state.currentSongIndex - 3}
             }
             return{...state, isPlaying: false, currentSongIndex: state.currentSongIndex + 1}
+        case "shuffle":
+            function getRandom(min = 0, max = state.songs.length) {
+                let difference = max - min;
+                let rand = Math.random();
+                rand = Math.floor(rand * difference);
+                rand = rand + min;
+                console.log(rand);
+                return rand;
+            }
+            return {...state, isPlaying: false, currentSongIndex: getRandom() }
         default:
             return state
    }
